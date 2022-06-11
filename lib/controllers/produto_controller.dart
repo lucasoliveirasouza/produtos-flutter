@@ -64,7 +64,8 @@ class ProdutoController extends ChangeNotifier{
         'valor': valor,
       }),
     );
-
+    _produtos.removeWhere((element) => element.nome == nome);
+    notifyListeners();
     return response;
   }
 }
