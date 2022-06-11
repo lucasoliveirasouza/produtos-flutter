@@ -85,7 +85,7 @@ class _ProdutoCadastroViewState extends State<ProdutoCadastroView> {
                 ),
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return "Informe o valor do produto";
+                    return "Informe o valor do produto ";
                   }
                   return null;
                 },
