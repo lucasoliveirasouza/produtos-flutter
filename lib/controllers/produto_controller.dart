@@ -34,8 +34,8 @@ class ProdutoController extends ChangeNotifier{
     }
   }
 
-  cadastrarProduto(String nome, String quantidade,String valor) {
-    http.post(
+  Future<http.Response> cadastrarProduto(String nome, String quantidade,String valor) async{
+    final http.Response response = await http.post(
       Uri.parse('https://produtos-api-lucas.herokuapp.com/api/produto'),
       headers: <String, String>{
         'Content-Type': 'application/json',
@@ -49,6 +49,27 @@ class ProdutoController extends ChangeNotifier{
 
     _produtos.add(Produto(0, nome, double.parse(quantidade), double.parse(valor)));
     notifyListeners();
+
+    return response;
+  }
+
+  Future<http.Response> editarProduto(String id, String nome, String quantidade,String valor) async{
+    final http.Response response = await http.put(
+      Uri.parse('https://produtos-api-lucas.herokuapp.com/api/produto'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        'id': id,
+        'nome': nome,
+        'quantidade': quantidade,
+        'valor': valor,
+      }),
+    );
+
+    notifyListeners();
+
+    return response;
   }
 
   Future<http.Response> deletarProduto(String id,String nome, String quantidade,String valor) async {
