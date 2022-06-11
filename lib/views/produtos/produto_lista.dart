@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:produtos/controllers/produto_controller.dart';
 import 'package:produtos/models/produto.dart';
 import 'package:produtos/views/produtos/produto_cadastro.dart';
+import 'package:produtos/views/produtos/produto_detalhes.dart';
 import 'package:provider/provider.dart';
 
 class ProdutoListaView extends StatefulWidget {
@@ -29,6 +30,9 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
                 trailing: Text(lista[produto].quantidade.toString()),
                 title: Text(lista[produto].nome),
                 subtitle: Text("RS " + lista[produto].valor.toString()),
+                onTap: (){
+                  Get.to(() => ProdutoDetalhesView(produto: lista[produto]));
+                },
               );
             },
             separatorBuilder: (_, __) => Container(),
