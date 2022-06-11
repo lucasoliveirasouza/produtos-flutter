@@ -47,7 +47,6 @@ class ProdutoController extends ChangeNotifier{
       }),
     );
 
-
     _produtos.add(Produto(0, nome, double.parse(quantidade), double.parse(valor)));
     notifyListeners();
   }
