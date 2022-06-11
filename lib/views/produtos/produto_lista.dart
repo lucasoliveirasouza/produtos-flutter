@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:produtos/controllers/produto_controller.dart';
 import 'package:produtos/models/produto.dart';
+import 'package:produtos/views/produtos/produto_cadastro.dart';
 import 'package:provider/provider.dart';
 
 class ProdutoListaView extends StatefulWidget {
@@ -36,7 +38,9 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          Get.to(() => ProdutoCadastroView());
+        },
         child: Icon(Icons.add),
       ),
 

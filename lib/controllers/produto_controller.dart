@@ -1,6 +1,7 @@
 
 import 'dart:collection';
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:produtos/models/produto.dart';
@@ -15,6 +16,7 @@ class ProdutoController extends ChangeNotifier{
   }
 
   _buscarProdutos() async {
+
     String uri = 'https://produtos-api-lucas.herokuapp.com/api/produtos';
     final response = await http.get(Uri.parse(uri), headers: {
       'Content-Type': 'application/json'
@@ -30,5 +32,23 @@ class ProdutoController extends ChangeNotifier{
       });
       notifyListeners();
     }
+  }
+
+  cadastrarProduto(String nome, String quantidade,String valor) {
+    http.post(
+      Uri.parse('https://produtos-api-lucas.herokuapp.com/api/produto'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        'nome': nome,
+        'quantidade': quantidade,
+        'valor': valor,
+      }),
+    );
+
+
+    _produtos.add(Produto(0, nome, double.parse(quantidade), double.parse(valor)));
+    notifyListeners();
   }
 }
