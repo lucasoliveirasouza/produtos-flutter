@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:produtos/controllers/produto_controller.dart';
 import 'package:produtos/models/produto.dart';
 import 'package:produtos/views/produtos/produto_cadastro.dart';
-import 'package:produtos/views/produtos/produto_detalhes.dart';
 import 'package:provider/provider.dart';
 
 class ProdutoListaView extends StatefulWidget {
@@ -28,12 +27,19 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
               final List<Produto> lista = repositorio.produtos;
               return Card(
                 child: ListTile(
-                  trailing: Text(lista[produto].quantidade.toString()),
                   title: Text(lista[produto].nome),
                   subtitle: Text("RS " + lista[produto].valor.toString()),
-                  onTap: (){
-                    Get.to(() => ProdutoDetalhesView(produto: lista[produto]));
-                  },
+                  trailing: IconButton(
+                    onPressed: () {
+                      Provider.of<ProdutoController>(context, listen: false)
+                          .deletarProduto(
+                              lista[produto].id.toString(),
+                              lista[produto].nome,
+                              lista[produto].quantidade.toString(),
+                              lista[produto].valor.toString());
+                    },
+                    icon: Icon(Icons.delete),
+                  ),
                 ),
               );
             },
@@ -42,14 +48,12 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
           );
         },
       ),
-
       floatingActionButton: FloatingActionButton(
-        onPressed: (){
+        onPressed: () {
           Get.to(() => ProdutoCadastroView());
         },
         child: Icon(Icons.add),
       ),
-
     );
   }
 }

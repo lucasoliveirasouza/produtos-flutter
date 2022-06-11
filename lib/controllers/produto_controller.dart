@@ -50,4 +50,21 @@ class ProdutoController extends ChangeNotifier{
     _produtos.add(Produto(0, nome, double.parse(quantidade), double.parse(valor)));
     notifyListeners();
   }
+
+  Future<http.Response> deletarProduto(String id,String nome, String quantidade,String valor) async {
+    final http.Response response = await http.delete(
+      Uri.parse('https://produtos-api-lucas.herokuapp.com/api/produto'),
+      headers: <String, String>{
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode(<String, String>{
+        'id': id,
+        'nome': nome,
+        'quantidade': quantidade,
+        'valor': valor,
+      }),
+    );
+
+    return response;
+  }
 }
