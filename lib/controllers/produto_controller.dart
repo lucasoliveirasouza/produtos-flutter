@@ -67,6 +67,14 @@ class ProdutoController extends ChangeNotifier{
       }),
     );
 
+    _produtos.forEach((element) {
+      if (element.id.toString() == id) {
+        element.nome = nome;
+        element.quantidade = double.parse(quantidade);
+        element.valor = double.parse(valor);
+
+      }
+    });
     notifyListeners();
 
     return response;
