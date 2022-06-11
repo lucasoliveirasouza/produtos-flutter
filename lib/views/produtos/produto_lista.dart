@@ -24,12 +24,12 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
             itemBuilder: (BuildContext contexto, int produto) {
               final List<Produto> lista = repositorio.produtos;
               return ListTile(
-
+                trailing: Text(lista[produto].quantidade.toString()),
                 title: Text(lista[produto].nome),
-
+                subtitle: Text("RS " + lista[produto].valor.toString()),
               );
             },
-            separatorBuilder: (_, __) => Divider(),
+            separatorBuilder: (_, __) => Container(),
             padding: EdgeInsets.all(16),
           );
         },
