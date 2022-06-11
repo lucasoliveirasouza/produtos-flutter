@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:produtos/controllers/produto_controller.dart';
 import 'package:produtos/views/produtos/produto_lista.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => ProdutoController()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
