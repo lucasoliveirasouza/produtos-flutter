@@ -35,6 +35,11 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
         },
       ),
 
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: Icon(Icons.add),
+      ),
+
     );
   }
 }

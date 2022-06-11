@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Produto Lista',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.purple,
       ),
       home: ProdutoListaView(),
     );

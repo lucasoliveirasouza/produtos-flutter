@@ -13,6 +13,7 @@ class ProdutoController extends ChangeNotifier{
   ProdutoController() {
     _buscarProdutos();
   }
+
   _buscarProdutos() async {
     String uri = 'https://produtos-api-lucas.herokuapp.com/api/produtos';
     final response = await http.get(Uri.parse(uri), headers: {
@@ -21,7 +22,6 @@ class ProdutoController extends ChangeNotifier{
 
     if (response.statusCode == 200) {
       final json = jsonDecode(response.body);
-
       List<dynamic> listaProdutos = json;
 
       listaProdutos.forEach((produto) {
@@ -30,7 +30,5 @@ class ProdutoController extends ChangeNotifier{
       });
       notifyListeners();
     }
-
-    print(_produtos.length);
   }
 }
