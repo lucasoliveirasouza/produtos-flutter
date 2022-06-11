@@ -26,13 +26,15 @@ class _ProdutoListaViewState extends State<ProdutoListaView> {
             itemCount: repositorio.produtos.length,
             itemBuilder: (BuildContext contexto, int produto) {
               final List<Produto> lista = repositorio.produtos;
-              return ListTile(
-                trailing: Text(lista[produto].quantidade.toString()),
-                title: Text(lista[produto].nome),
-                subtitle: Text("RS " + lista[produto].valor.toString()),
-                onTap: (){
-                  Get.to(() => ProdutoDetalhesView(produto: lista[produto]));
-                },
+              return Card(
+                child: ListTile(
+                  trailing: Text(lista[produto].quantidade.toString()),
+                  title: Text(lista[produto].nome),
+                  subtitle: Text("RS " + lista[produto].valor.toString()),
+                  onTap: (){
+                    Get.to(() => ProdutoDetalhesView(produto: lista[produto]));
+                  },
+                ),
               );
             },
             separatorBuilder: (_, __) => Container(),
