@@ -13,4 +13,4 @@
 <img align="center" title="Flutter" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg"> <img align="center" title="Heroku" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg">
 
 ### Descrição:
-Aplicativo Flutter criado para consumir API construída em Spring Boot. Com ele, é possível listar, criar, editar e deletar Produtos. A API Consumida pelo aplicativo pode ser encontrada no seguinte repositório> 
+Aplicativo Flutter criado para consumir API construída em Spring Boot. Com ele, é possível listar, criar, editar e deletar Produtos. A API Consumida pelo aplicativo pode ser encontrada no seguinte repositório: https://github.com/lucasoliveirasouza/produtos-api
