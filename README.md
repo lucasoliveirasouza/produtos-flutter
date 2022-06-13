@@ -15,7 +15,7 @@
 ### Descrição:
 Aplicativo Flutter criado para consumir API construída em Spring Boot. Com ele, é possível listar, criar, editar e deletar Produtos. A API Consumida pelo aplicativo pode ser encontrada no seguinte repositório: https://github.com/lucasoliveirasouza/produtos-api
 
-<div align="center" height="50">
+<div align="center">
   
 ![Screenrecorder-2022-06-13-20-32-34-39 (1)](https://user-images.githubusercontent.com/26170686/173464428-bdada7c0-b31c-402d-a812-3a937ffbd8d7.gif)
   
